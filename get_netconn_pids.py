@@ -35,11 +35,11 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         print 'USAGE: netstats.py checkport'
         sys.exit(0)
-   
-check_port = int(str(sys.argv[1]))
-# print check_port
-ids = get_listen_pids(check_port)
-print ids
-for id in ids:
-    print id
+    
+    check_port = int(str(sys.argv[1]))
+    # print check_port
+    ids = get_listen_pids(check_port)
+    print ids
+    for id in ids:
+        print id
 
