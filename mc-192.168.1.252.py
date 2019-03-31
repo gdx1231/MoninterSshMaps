@@ -21,4 +21,4 @@ if __name__ == '__main__':
     }
     while True:
         moniter_client.monitor(cfg)
-        time.sleep(10)
+        time.sleep(100)
