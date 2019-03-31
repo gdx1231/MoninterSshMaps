@@ -7,7 +7,6 @@ import sys
 from urllib import urlencode
 from socket import gethostname
 
-
 def check_port(addrAndPort):
     """
     检查端口是否可用.
