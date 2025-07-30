@@ -34,17 +34,17 @@ def get_process_ids(progressName, listChkTags):
                     else:
                         ismatch = ismatch and False
                 if ismatch:
-                    print(k, i, proc.name(), proc.exe(), cmd, proc.username())
+                    print k, i, proc.name(), proc.exe(), cmd, proc.username()
                     ssh_ids.append(i)
         except psutil.AccessDenied:
-            print("psutil.AccessDenied")
+            print "psutil.AccessDenied"
         except psutil.NoSuchProcess:
-            print("psutil.NoSuchProcess")
+            print "psutil.NoSuchProcess"
         except psutil.TimeoutExpired:
-            print("psutil.TimeoutExpired")
+            print "psutil.TimeoutExpired"
     return ssh_ids
 
 
 if __name__ == '__main__':
-    ids = get_process_ids('ssh', ['-CNgfR', '55022'])
-    print(ids)
+    ids = get_process_ids('ssh', ['-CNfR', '44444'])
+    print ids

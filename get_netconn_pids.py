@@ -22,23 +22,24 @@ def get_listen_pids(checkport):
             
             if status == 'LISTEN' and port == checkport:
                 pid = cnn.pid
-                if pid not in map_ids:
+                if not map_ids.has_key(pid):
                     map_ids[pid] =1
                     net_ids.append(pid)
     except psutil.AccessDenied:
-         print("psutil.AccessDenied")
+         print "psutil.AccessDenied"
     
     return net_ids
 
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print('USAGE: netstats.py checkport')
+        print 'USAGE: netstats.py checkport'
         sys.exit(0)
     
     check_port = int(str(sys.argv[1]))
     # print check_port
     ids = get_listen_pids(check_port)
-    print(ids)
+    print ids
     for id in ids:
-        print(id)
+        print id
+
