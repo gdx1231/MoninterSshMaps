@@ -1,1 +1,10 @@
 *.pyc
+venv/*
+.gitignore
+.venv/
+__pycache__/
+build/
+dist/
+*.egg-info/
+*.pyc
+main.py
