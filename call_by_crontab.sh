@@ -3,8 +3,7 @@
 # cron
 # */5 0 * * * /Users/admin/MoninterSshMaps/call_by_crontab.sh
 
-source /Users/admin/MoninterSshMaps/venv/bin/activate
-cd /Users/admin/MoninterSshMaps
+source ./venv/bin/activate
 python3 call_by_crontab.py
 
 

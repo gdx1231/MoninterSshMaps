@@ -4,7 +4,7 @@ import subprocess
 import socket
 import time
 import sys
-from urllib import urlencode
+from urllib.parse import urlencode  # Python 3中urlencode的位置变更
 from socket import gethostname
 
 def check_port(addrAndPort):
@@ -24,13 +24,13 @@ def check_port(addrAndPort):
     if len(addr1) > 2:
         net_type = addr1[2]
 
-    print (addr, port, net_type)
+    print(addr, port, net_type)
     try:
         sk = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sk.settimeout(2)
         sk.connect((addr, port))
         if port == 80 or port == 443 or net_type == 'http':
-            sk.send('GET / HTTP/1.0\r\n\r\n')
+            sk.send(b'GET / HTTP/1.0\r\n\r\n')  # Python 3需要发送字节串
 
         # sk.connect(('127.0.0.1', 22))
         ret_bytes = sk.recv(102)
@@ -43,10 +43,10 @@ def check_port(addrAndPort):
         #f = open(logfile, 'a+')
         #f.write(now + " " + tt + "\n")
         # f.close()
-        print (now, port, tt)
+        print(now, port, tt)
         return True
-    except socket.error:
-        print (socket.error)
+    except socket.error as e:  # Python 3推荐的异常处理语法
+        print(e)
         return False
 
 
@@ -60,4 +60,4 @@ def check_ports(addrs):
 
 
 if __name__ == '__main__':
-    check_ports(['127.0.0.1:22', '192.168.1.252:880:http'])
+    check_ports(['127.0.0.1:22', '192.168.1.1:80:http'])
