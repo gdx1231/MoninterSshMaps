@@ -12,8 +12,6 @@
 # By default this script does nothing.
 
 
-nohup python /root/MonitorSshMaps/mc-192.168.1.252.py &
-
+nohup python3 /Users/admin/MonitorSshMaps/main.sh > /dev/null 2>&1 &
 
 exit 0
-

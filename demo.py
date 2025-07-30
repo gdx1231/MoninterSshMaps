@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# nas服务器8000端口监控
+# nas服务器55022端口监控
 
 import os
 import time
@@ -22,4 +22,7 @@ if __name__ == '__main__':
     }
     while True:
         moniter_client.monitor(cfg)
+        # 休眠100秒
         time.sleep(100)
+        # 如果是crontab执行，则退出循环
+        # break
